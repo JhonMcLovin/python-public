@@ -15,28 +15,16 @@ unique_locations = data['location'].unique()
 
 st.title("COVID-19 Data Filtering App")
 
-# add_selectbox = st.sidebar.selectbox(
-#     "Filter Options",
-#     unique_locations
-#  )
-# # Filter the data based on the selected value
-# filtered_data = data[data['location'] == add_selectbox]
+add_selectbox = st.sidebar.selectbox(
+    "Filter Options",
+    unique_locations
+ )
 
-# Sidebar filters
-st.sidebar.header("Filter Options")
+# Filter the data based on the selected value
+filtered_data = data[data['location'] == add_selectbox]
 
-# Filter by country
-country = st.sidebar.selectbox("Select Country", df["location"].unique())
 
-# Filter by date with "DD.MM.YYYY" format
-start_date = st.sidebar.date_input("Start Date")
-end_date = st.sidebar.date_input("End Date")
-
-# Apply filters
-filtered_df = df[(df["location"] == country) & (df["date"] >= start_date) & (df["date"] <= end_date)]
-
-#st.write(f"Data from '{add_selectbox}':")
-st.write(f"Data from '{country}' for time period between '{start_date}' and '{end_date}' :")
+st.write(f"Data from '{add_selectbox}':")
 st.write(filtered_data)
 
 
