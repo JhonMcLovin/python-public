@@ -18,7 +18,7 @@ country = st.sidebar.selectbox("Select Country", df["location"].unique())
 
 filtered_df = df[(df["location"] == country)# & (df["date"] > start_date) & (df["date"] < end_date)]
 
-st.header("Filtered Data")
+# st.header("Filtered Data")
 st.write(df)
 
 # Download filtered data as CSV
