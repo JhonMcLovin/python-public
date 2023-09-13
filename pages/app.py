@@ -31,7 +31,7 @@ st.write(filtered_data)
 
 
 
-chart_data = filtered_data[['date', 'total_cases']]
+chart_data = filtered_data[['date', 'new_cases_smoothed', 'new_deaths_smoothed']]
 
 
 st.line_chart(chart_data.set_index('date'))
