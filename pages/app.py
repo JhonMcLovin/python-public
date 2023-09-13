@@ -1,33 +1,28 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
+def load_data():
+    data = pd.read_csv(r"https://raw.githubusercontent.com/JhonMcLovin/python-public/main/Covid2023.csv")
+    return data
+    
+data = load_data()
 
-url = "https://raw.githubusercontent.com/JhonMcLovin/python-public/main/Covid2023.csv"
-df = pd.read_csv(url)
-
-df["location"] = pd.to_datetime(df["location"], errors='coerce').dt.date
+unique_locations = data['location'].unique()
 
 st.title("COVID-19 Data Filtering App")
-st.markdown("This app allows you to filter COVID-19 data from 2023.")
 
-st.sidebar.header("Filter Options")
-
-country = st.sidebar.selectbox("Select Country", df["location"].unique())
-
-start_date = st.sidebar.date_input("Start Date")
-end_date = st.sidebar.date_input("End Date")
-
-filtered_df = df[(df["location"] == country) 
-# & (df["date"] > start_date) & (df["date"] < end_date)]
+add_selectbox = st.sidebar.selectbox(
+    "Filter Options",
+    unique_locations
+)
 
 
-st.header("Filtered Data")
-st.write(filtered_df)
+# Filter the data based on the selected value
+filtered_data = data[data['location'] == add_selectbox]
 
-if st.button("Download Filtered Data as CSV"):
-    with st.spinner("Downloading..."):
-        filtered_df.to_csv(f"{country}_covid_data.csv", index=False)
-        st.success(f"{country}_covid_data.csv downloaded successfully!")
 
-st.header("Original Data")
-st.write(df)
+
+st.write(f"Data from '{add_selectbox}':")
+st.write(filtered_data)
+
