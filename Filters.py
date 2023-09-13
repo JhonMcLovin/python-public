@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 
 def load_data():
-    data = pd.read_csv(r"https://github.com/JhonMcLovin/python-public/blob/main/board_games.csv")
+    data = pd.read_csv(r"https://raw.githubusercontent.com/JhonMcLovin/python-public/main/board_games.csv")
     return data
 
 data = load_data()
