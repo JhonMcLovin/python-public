@@ -5,6 +5,7 @@ import seaborn as sns
 
 def load_data():
     data = pd.read_csv(r"https://raw.githubusercontent.com/JhonMcLovin/python-public/main/Covid2023.csv")
+    data.sort_values(by='date', inplace=True).reset_index(drop=True)
     return data
     
 data = load_data()
