@@ -18,6 +18,7 @@ add_selectbox = st.sidebar.selectbox(
     unique_group_names
 )
 
+st.sidebar(st.write("check out this [link](https://share.streamlit.io/mesmith027/streamlit_webapps/main/MC_pi/streamlit_app.py)"))
 # Filter the data based on the selected value
 filtered_data = data[data['Board game type'] == add_selectbox]
 
