@@ -9,8 +9,6 @@ def load_data():
     
 data = load_data()
 
-data.sort_values(by='date', inplace=True)
-
 unique_locations = data['location'].unique()
 
 st.title("COVID-19 Data Filtering App")
