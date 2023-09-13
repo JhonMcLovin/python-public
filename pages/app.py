@@ -4,7 +4,7 @@ import pandas as pd
 # Load the data from the provided URL
 url = "https://raw.githubusercontent.com/JhonMcLovin/python-public/main/Covid2023.csv"
 df = pd.read_csv(url)
-df["location"] = pd.to_datetime(df["location"], errors='coerce').dt.date
+
 # Streamlit app title and description
 st.title("COVID-19 Data Filtering App")
 st.markdown("This app allows you to filter COVID-19 data from 2023.")
@@ -16,8 +16,8 @@ st.sidebar.header("Filter Options")
 country = st.sidebar.selectbox("Select Country", df["location"].unique())
 
 # Filter by date with "DD.MM.YYYY" format
-start_date = st.sidebar.date_input("Start Date")
-end_date = st.sidebar.date_input("End Date")
+start_date = st.sidebar.date_input("Start Date", format="DD.MM.YYYY")
+end_date = st.sidebar.date_input("End Date", format="DD.MM.YYYY")
 
 # Apply filters
 filtered_df = df[(df["location"] == country) & (df["date"] > start_date) & (df["date"] < end_date)]
