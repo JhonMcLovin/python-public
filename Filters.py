@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 
 def load_data():
-    data = pd.read_csv(r"C:\Users\janis\Desktop\Nosleguma_Darbs\Streamlit\data\board_games.csv")
+    data = pd.read_csv(r"board_games.csv")
     return data
 
 data = load_data()
