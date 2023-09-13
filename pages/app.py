@@ -31,6 +31,5 @@ st.write(filtered_data)
 
 chart_data = filtered_data[['date', 'total_cases']]
 
-st.title("Data from {add_selectbox}")
 
 st.line_chart(chart_data.set_index('date'))
