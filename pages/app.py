@@ -17,7 +17,8 @@ country = st.sidebar.selectbox("Select Country", df["location"].unique())
 start_date = st.sidebar.date_input("Start Date")
 end_date = st.sidebar.date_input("End Date")
 
-filtered_df = df[(df["location"] == country) & (df["date"] > start_date) & (df["date"] < end_date)]
+filtered_df = df[(df["location"] == country) 
+# & (df["date"] > start_date) & (df["date"] < end_date)]
 
 
 st.header("Filtered Data")
